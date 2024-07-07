@@ -1,0 +1,40 @@
+INPUT:
+yasaswini@yasaswini-HP-Laptop-15s-fr5xxx:~$ gcc cache.c -lm
+yasaswini@yasaswini-HP-Laptop-15s-fr5xxx:~$ ./a.out
+
+OUTPUT: 
+
+ Address: 0x00001234, Set: 0x04, Miss, Tag: 0x000004 
+ Address: 0x00005678, Set: 0x04, Miss, Tag: 0x000015 
+ Address: 0x00009ABC, Set: 0x05, Miss, Tag: 0x000026 
+ Address: 0x0000DEFF, Set: 0x05, Miss, Tag: 0x000037 
+ Address: 0x00001234, Set: 0x04, Miss, Tag: 0x000004 
+ Address: 0x00009ABC, Set: 0x05, Miss, Tag: 0x000026 
+ Address: 0x00005678, Set: 0x04, Hit, Tag: 0x000015 
+ Address: 0x0000DEFF, Set: 0x05, Hit, Tag: 0x000037 
+ Address: 0x00001234, Set: 0x04, Miss, Tag: 0x000004 
+ Address: 0x0000DEFF, Set: 0x05, Hit, Tag: 0x000037 
+ Address: 0x00009ABC, Set: 0x05, Hit, Tag: 0x000026 
+ Address: 0x00005678, Set: 0x04, Hit, Tag: 0x000015
+ 
+ cache.config:
+	4096
+	128
+	4
+	FIFO
+	WT
+	
+cache.access:
+
+W: 0x1234
+R: 0x5678
+W: 0x9ABC
+R: 0xDEFF
+W: 0x1234
+R: 0x9ABC
+W: 0x5678
+R: 0xDEFF
+R: 0x1234
+W: 0xDEFF
+R: 0x9ABC
+W: 0x5678
